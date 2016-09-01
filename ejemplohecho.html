@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mi ejemplo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.min.css" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/angular-datepicker.min.css" rel="stylesheet"  >
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/angular-datepicker.min.js"></script>
+</head>
+<body ng-app="app">
+	<div class="container agrandar" ng-controller="controlador" >
+		<div align="center">
+			<h1>Mi ejemplo AngularJS</h1>
+			
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<h5>Agregar nuevo producto:</h5>
+			<div class="formulario">
+
+
+				<h6>Nombre:</h6>
+				<input  ng-model="producto.nombre" placeholder="Nombre" class="form-control" type="text">
+
+				<h6>Precio:</h6>
+				<input  ng-model="producto.precio" placeholder="Precio" class="form-control" type="text">
+				
+
+				<h6>Existencia:</h6>
+				<input ng-model="producto.existencia" placeholder="Existencia" class="form-control" type="text">
+
+				<br>
+				<h6>Fecha de inventario:</h6>
+				<datepicker>
+				  <input  ng-model="producto.fecha" placeholder="Fecha" class="form-control" type="text">
+				</datepicker>
+				<br>
+				<br>
+				<a ng-click="ingresarProducto()" class="btn btn-block btn-lg btn-info">Ingresar Producto</a>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<h5>Listado de preductos:</h5>
+			<div class="todo">
+            <ul>
+              	<li   ng-repeat = "rproducto in productos" class="{{rproducto.done}}">
+                <div class="todo-content">
+                  <h4 class="todo-name">
+                	<div class="todo-icon fui-check"></div>
+                	{{rproducto.nombre}} Q.{{rproducto.precio}}
+                  </h4>
+                   {{rproducto.fecha}}
+                </div>
+              </li>
+            </ul>
+          </div>
+		</div>
+	</div>
+</body>
+</html>
